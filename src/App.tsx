@@ -5,17 +5,14 @@ import Pie from './component/pie';
 
 const App: React.FC = () => {
   return (
-    <>
+    <div className="App">
       <BrowserRouter>
-        <div className="App">
-          <br />
-          <Routes>
-            <Route path="/" element={<Router />} />
-            <Route path="pie" element={<Pie />} />
-          </Routes>
-        </div>
+        <Routes>
+          <Route path="/" element={<Router />} />
+          <Route path="pie" element={<Pie />} />
+        </Routes>
       </BrowserRouter>
-    </>
+    </div>
   );
 };
 
