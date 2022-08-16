@@ -1,7 +1,9 @@
 import React from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Router from './component/router';
-import Pie from './component/pie-container';
+//component
+import StudyContainer from './component/study-container';
+import PieContainer from './component/pie-container';
 
 const App: React.FC = () => {
   return (
@@ -9,7 +11,8 @@ const App: React.FC = () => {
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Router />} />
-          <Route path="pie" element={<Pie />} />
+          <Route path="study" element={<StudyContainer />} />
+          <Route path="pie" element={<PieContainer />} />
         </Routes>
       </BrowserRouter>
     </div>

@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useEffect, useRef } from 'react';
 import * as d3 from 'd3';
 
 type TProps = {
@@ -17,7 +17,6 @@ const Pie: React.FC<TProps> = ({ data, width, height, innerRadius, outerRadius }
     .value((d: any) => d.value)
     .sort(null);
   const createArc = d3.arc().innerRadius(innerRadius).outerRadius(outerRadius);
-
   const colors = d3.scaleOrdinal(d3.schemeCategory10);
   const format = d3.format('.2f');
 
@@ -28,14 +27,12 @@ const Pie: React.FC<TProps> = ({ data, width, height, innerRadius, outerRadius }
     const groupWithData = group.selectAll('g.arc').data(createData);
     groupWithData.exit().remove();
     const groupWithUpdate = groupWithData.enter().append('g').attr('class', 'arc');
-    const path = groupWithUpdate.append('path').merge(groupWithData.select('path.arc'));
-    console.log('path', path);
 
+    const path = groupWithUpdate.append('path').merge(groupWithData.select('path.arc'));
     const arcTween = (d: any, i: any) => {
       const interpolator = d3.interpolate(prevData[i], d);
       return (t: any) => createArc(interpolator(t));
     };
-
     path
       .attr('class', 'arc')
       .attr('fill', (d, i: any) => colors(i))
@@ -43,7 +40,6 @@ const Pie: React.FC<TProps> = ({ data, width, height, innerRadius, outerRadius }
       .attrTween('d', arcTween as any);
 
     const text = groupWithUpdate.append('text').merge(groupWithData.select('text'));
-
     text
       .attr('text-anchor', 'middle')
       .attr('alignment-baseline', 'middle')

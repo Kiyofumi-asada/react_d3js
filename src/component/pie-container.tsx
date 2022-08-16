@@ -4,10 +4,9 @@ import { Link } from 'react-router-dom';
 import Pie from './pie';
 
 const PieContainer: React.FC = () => {
-  const [width, height] = [1000, 1000];
+  const [width, height] = [600, 600];
   const [innerRadius, setInnerRadius] = useState<number>(50);
   const [outerRadius, setOuterRadius] = useState<number>(220);
-  const [baseData, setBasedata] = useState<object>({});
 
   // ボタンクリック時にランダムなデータを生成
   const generateData = (length = 10, value?: number) =>
@@ -29,7 +28,6 @@ const PieContainer: React.FC = () => {
     setOuterRadius(outerRadius / 1.1);
     setData(generateData());
   };
-  console.log(outerRadius);
 
   return (
     <>
