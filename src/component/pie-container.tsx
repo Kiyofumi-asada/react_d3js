@@ -7,6 +7,7 @@ const PieContainer: React.FC = () => {
   const [width, height] = [500, 500];
   const [innerRadius, setInnerRadius] = useState<number>(50);
   const [outerRadius, setOuterRadius] = useState<number>(220);
+  const [baseData, setBasedata] = useState<object>({});
 
   // ボタンクリック時にランダムなデータを生成
   const generateData = (length = 10, value?: number) =>
@@ -19,13 +20,13 @@ const PieContainer: React.FC = () => {
     setData(generateData());
   };
   const sizeUp = () => {
-    setInnerRadius(innerRadius * 1.1);
-    setOuterRadius(outerRadius * 1.1);
+    setInnerRadius(innerRadius + 5);
+    setOuterRadius(outerRadius + 5);
     setData(generateData());
   };
   const sizeDown = () => {
-    setInnerRadius(innerRadius * 0.9);
-    setOuterRadius(outerRadius * 0.9);
+    setInnerRadius(innerRadius - 5);
+    setOuterRadius(outerRadius - 5);
     setData(generateData());
   };
   console.log(outerRadius);
