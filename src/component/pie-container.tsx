@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import Pie from './pie';
 
 const PieContainer: React.FC = () => {
-  const [width, height] = [500, 500];
+  const [width, height] = [1000, 1000];
   const [innerRadius, setInnerRadius] = useState<number>(50);
   const [outerRadius, setOuterRadius] = useState<number>(220);
   const [baseData, setBasedata] = useState<object>({});
