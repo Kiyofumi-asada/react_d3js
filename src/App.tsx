@@ -1,7 +1,7 @@
 import React from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Router from './component/router';
-import Pie from './component/pie';
+import Pie from './component/pie-container';
 
 const App: React.FC = () => {
   return (
