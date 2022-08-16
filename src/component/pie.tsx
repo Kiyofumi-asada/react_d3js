@@ -1,6 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react';
 import * as d3 from 'd3';
-import { Link } from 'react-router-dom';
 
 type TProps = {
   data: any;
@@ -12,21 +11,15 @@ type TProps = {
 
 const Pie: React.FC<TProps> = ({ data, width, height, innerRadius, outerRadius }) => {
   const ref = useRef(null);
-  // console.log('ref', ref);
   const cache = useRef(data);
-  // console.log('cache', cache);
   const createPie = d3
     .pie()
     .value((d: any) => d.value)
     .sort(null);
-  // console.log('createPie', createPie);
   const createArc = d3.arc().innerRadius(innerRadius).outerRadius(outerRadius);
 
   const colors = d3.scaleOrdinal(d3.schemeCategory10);
   const format = d3.format('.2f');
-  // console.log('createArc', createArc);
-  // console.log('colors', colors);
-  // console.log('format', format);
 
   useEffect(() => {
     const createData: any = createPie(data);
