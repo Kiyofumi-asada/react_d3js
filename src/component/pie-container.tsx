@@ -20,13 +20,13 @@ const PieContainer: React.FC = () => {
     setData(generateData());
   };
   const sizeUp = () => {
-    setInnerRadius(innerRadius + 5);
-    setOuterRadius(outerRadius + 5);
+    setInnerRadius(innerRadius * 1.1);
+    setOuterRadius(outerRadius * 1.1);
     setData(generateData());
   };
   const sizeDown = () => {
-    setInnerRadius(innerRadius - 5);
-    setOuterRadius(outerRadius - 5);
+    setInnerRadius(innerRadius / 1.1);
+    setOuterRadius(outerRadius / 1.1);
     setData(generateData());
   };
   console.log(outerRadius);
